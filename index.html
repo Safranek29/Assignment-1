@@ -92,7 +92,7 @@
             transform: scale(1.05);
         }
 
-        .sparkle {
+        .stars {
             position: absolute;
             width: 100%;
             height: 100%;
@@ -100,61 +100,83 @@
             overflow: hidden;
         }
 
-        .sparkle span {
+        .star {
             position: absolute;
-            width: 4px;
-            height: 4px;
             background: white;
             border-radius: 50%;
-            box-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white;
-            animation: sparkleFloat 8s linear infinite;
+            box-shadow: 0 0 10px white, 0 0 20px white;
+            animation: twinkle 3s ease-in-out infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% {
+                opacity: 0.3;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.2);
+            }
+        }
+
+        .star:nth-child(1) { width: 3px; height: 3px; top: 10%; left: 15%; animation-delay: 0s; animation-duration: 2.5s; }
+        .star:nth-child(2) { width: 2px; height: 2px; top: 20%; left: 80%; animation-delay: 0.5s; animation-duration: 3s; }
+        .star:nth-child(3) { width: 4px; height: 4px; top: 30%; left: 25%; animation-delay: 1s; animation-duration: 2s; }
+        .star:nth-child(4) { width: 3px; height: 3px; top: 15%; left: 60%; animation-delay: 1.5s; animation-duration: 3.5s; }
+        .star:nth-child(5) { width: 2px; height: 2px; top: 50%; left: 10%; animation-delay: 2s; animation-duration: 2.8s; }
+        .star:nth-child(6) { width: 3px; height: 3px; top: 60%; left: 70%; animation-delay: 0.3s; animation-duration: 3.2s; }
+        .star:nth-child(7) { width: 4px; height: 4px; top: 70%; left: 40%; animation-delay: 1.2s; animation-duration: 2.3s; }
+        .star:nth-child(8) { width: 2px; height: 2px; top: 80%; left: 85%; animation-delay: 0.8s; animation-duration: 3.8s; }
+        .star:nth-child(9) { width: 3px; height: 3px; top: 25%; left: 45%; animation-delay: 1.8s; animation-duration: 2.6s; }
+        .star:nth-child(10) { width: 2px; height: 2px; top: 40%; left: 90%; animation-delay: 0.2s; animation-duration: 3.3s; }
+        .star:nth-child(11) { width: 4px; height: 4px; top: 55%; left: 50%; animation-delay: 1.4s; animation-duration: 2.9s; }
+        .star:nth-child(12) { width: 3px; height: 3px; top: 75%; left: 20%; animation-delay: 0.6s; animation-duration: 3.1s; }
+        .star:nth-child(13) { width: 2px; height: 2px; top: 85%; left: 55%; animation-delay: 1.6s; animation-duration: 2.4s; }
+        .star:nth-child(14) { width: 3px; height: 3px; top: 35%; left: 75%; animation-delay: 0.9s; animation-duration: 3.4s; }
+        .star:nth-child(15) { width: 4px; height: 4px; top: 65%; left: 35%; animation-delay: 1.1s; animation-duration: 2.7s; }
+        .star:nth-child(16) { width: 2px; height: 2px; top: 5%; left: 50%; animation-delay: 1.3s; animation-duration: 3.6s; }
+        .star:nth-child(17) { width: 3px; height: 3px; top: 45%; left: 5%; animation-delay: 0.4s; animation-duration: 2.2s; }
+        .star:nth-child(18) { width: 2px; height: 2px; top: 90%; left: 65%; animation-delay: 1.7s; animation-duration: 3.7s; }
+        .star:nth-child(19) { width: 4px; height: 4px; top: 12%; left: 30%; animation-delay: 0.7s; animation-duration: 2.5s; }
+        .star:nth-child(20) { width: 3px; height: 3px; top: 95%; left: 42%; animation-delay: 1.9s; animation-duration: 3.9s; }
+
+        .author {
+            font-size: clamp(1.2rem, 4vw, 2rem);
+            font-weight: 700;
+            margin-top: 2rem;
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+            animation: fadeIn 2s ease forwards 0.5s;
             opacity: 0;
         }
-
-        @keyframes sparkleFloat {
-            0% {
-                opacity: 0;
-                transform: translateY(100vh) rotate(0deg);
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                opacity: 0;
-                transform: translateY(-100vh) rotate(360deg);
-            }
-        }
-
-        .sparkle span:nth-child(1) { left: 10%; animation-delay: 0s; }
-        .sparkle span:nth-child(2) { left: 20%; animation-delay: 1s; }
-        .sparkle span:nth-child(3) { left: 30%; animation-delay: 2s; }
-        .sparkle span:nth-child(4) { left: 40%; animation-delay: 3s; }
-        .sparkle span:nth-child(5) { left: 50%; animation-delay: 4s; }
-        .sparkle span:nth-child(6) { left: 60%; animation-delay: 5s; }
-        .sparkle span:nth-child(7) { left: 70%; animation-delay: 6s; }
-        .sparkle span:nth-child(8) { left: 80%; animation-delay: 7s; }
-        .sparkle span:nth-child(9) { left: 90%; animation-delay: 0.5s; }
-        .sparkle span:nth-child(10) { left: 15%; animation-delay: 2.5s; }
     </style>
 </head>
 <body>
-    <div class="sparkle">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
+    <div class="stars">
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
     </div>
     <div class="container">
         <h1>Hello world, I'm ready to vibe code!</h1>
+        <p class="author">Louis Safranek</p>
     </div>
 </body>
 </html>
