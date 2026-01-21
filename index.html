@@ -3,27 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assignment 1</title>
+    <title>Vibe Code</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;900&display=swap" rel="stylesheet">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            margin: 0;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            overflow: hidden;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .container {
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 1.5s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
         }
 
         h1 {
-            font-size: 3rem;
-            text-align: center;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            font-size: clamp(2rem, 8vw, 5rem);
+            font-weight: 900;
+            line-height: 1.2;
+            background: linear-gradient(45deg, #fff, #ffd700, #ff69b4, #00ffff, #fff);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+            animation: float 3s ease-in-out infinite, textGradient 5s ease infinite;
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+            padding: 0 1rem;
+            cursor: default;
+            transition: transform 0.3s ease;
         }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes textGradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        h1:hover {
+            transform: scale(1.05);
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .sparkle span {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white;
+            animation: sparkleFloat 8s linear infinite;
+            opacity: 0;
+        }
+
+        @keyframes sparkleFloat {
+            0% {
+                opacity: 0;
+                transform: translateY(100vh) rotate(0deg);
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-100vh) rotate(360deg);
+            }
+        }
+
+        .sparkle span:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .sparkle span:nth-child(2) { left: 20%; animation-delay: 1s; }
+        .sparkle span:nth-child(3) { left: 30%; animation-delay: 2s; }
+        .sparkle span:nth-child(4) { left: 40%; animation-delay: 3s; }
+        .sparkle span:nth-child(5) { left: 50%; animation-delay: 4s; }
+        .sparkle span:nth-child(6) { left: 60%; animation-delay: 5s; }
+        .sparkle span:nth-child(7) { left: 70%; animation-delay: 6s; }
+        .sparkle span:nth-child(8) { left: 80%; animation-delay: 7s; }
+        .sparkle span:nth-child(9) { left: 90%; animation-delay: 0.5s; }
+        .sparkle span:nth-child(10) { left: 15%; animation-delay: 2.5s; }
     </style>
 </head>
 <body>
-    <h1>Hello from Assignment 1!</h1>
+    <div class="sparkle">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div class="container">
+        <h1>Hello world, I'm ready to vibe code!</h1>
+    </div>
 </body>
 </html>
